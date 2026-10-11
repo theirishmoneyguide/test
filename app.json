@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Budget Planner",
+    "slug": "irish-household-budget-planner",
+    "description": "Irish Household Budget & Tax Planner: take-home pay, a month-by-month budget, net worth and a dashboard, on 2026 Irish tax rates.",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "budgetplanner",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.theirishmoneyguide.budgetplanner",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.theirishmoneyguide.budgetplanner",
+      "adaptiveIcon": {
+        "backgroundColor": "#1F6349",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#1F6349",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 120
+        }
+      ]
+    ],
+    "experiments": {
+      "reactCompiler": true
+    }
+  }
+}
