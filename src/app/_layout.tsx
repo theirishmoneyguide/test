@@ -59,6 +59,7 @@ export default function RootLayout() {
           <Stack.Screen name="welcome" options={{ headerShown: false }} />
         </Stack.Protected>
         <Stack.Screen name="guide" options={{ title: 'How it works' }} />
+        <Stack.Screen name="+not-found" options={{ headerShown: false }} />
       </Stack>
       <KeyboardDoneBar />
     </ThemeProvider>

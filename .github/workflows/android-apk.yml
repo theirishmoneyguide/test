@@ -1,0 +1,34 @@
+name: Android test APK
+
+# Builds an APK you can install straight onto an Android phone to try the app.
+# Run it from the Actions tab: "Android test APK" → "Run workflow".
+# The APK is signed with a debug key — fine for testing, not for Google Play
+# (use `eas build -p android --profile production` for the store).
+on:
+  workflow_dispatch:
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - run: npm ci
+      - name: Generate the native Android project
+        run: npx expo prebuild --platform android --no-install
+      - name: Build the APK
+        working-directory: android
+        run: ./gradlew assembleRelease --no-daemon -PreactNativeArchitectures=armeabi-v7a,arm64-v8a
+      - uses: actions/upload-artifact@v4
+        with:
+          name: budget-planner-android-apk
+          path: android/app/build/outputs/apk/release/app-release.apk
+          retention-days: 30
