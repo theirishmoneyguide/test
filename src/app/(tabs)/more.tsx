@@ -1,7 +1,7 @@
 import Constants from 'expo-constants';
 import { useRouter } from 'expo-router';
-import { BookOpen, Eraser, FileText, RotateCcw, Scale, Share2 } from 'lucide-react-native';
 
+import { BookOpen, Eraser, FileText, RotateCcw, Scale, Share2 } from '@/components/icons';
 import { Card, Disclaimer, LinkRow, Note, ScreenScroll } from '@/components/ui';
 import { usePlannerData, usePlannerStore } from '@/store/plannerStore';
 import { confirmAction } from '@/utils/dialogs';

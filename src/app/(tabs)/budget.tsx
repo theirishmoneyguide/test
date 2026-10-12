@@ -1,9 +1,9 @@
 import { useRouter } from 'expo-router';
-import { ChevronRight } from 'lucide-react-native';
 import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 
 import { AddButton } from '@/components/AddButton';
+import { ChevronRight } from '@/components/icons';
 import { AmountField } from '@/components/inputs';
 import { MonthPicker, type MonthSelection } from '@/components/MonthPicker';
 import { Card, Disclaimer, Note, Row, ScreenScroll } from '@/components/ui';

@@ -1,10 +1,10 @@
 import { useRouter } from 'expo-router';
-import { FileText } from 'lucide-react-native';
 import { View } from 'react-native';
 
 import { CategoryBarChart, MonthlyColumnChart, NetWorthLineChart } from '@/components/charts';
 import { HealthRow, type HealthStatus } from '@/components/HealthRow';
 import { StatTile } from '@/components/StatTile';
+import { FileText } from '@/components/icons';
 import { Button, Card, Disclaimer, Note, ScreenScroll, TableRow } from '@/components/ui';
 import { MONTHS, type EmergencyRating } from '@/engine';
 import { usePlanner } from '@/store/plannerStore';

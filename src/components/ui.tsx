@@ -1,4 +1,3 @@
-import { ChevronDown, ChevronRight, ChevronUp, type LucideIcon } from 'lucide-react-native';
 import { useState, type ReactNode } from 'react';
 import {
   Pressable,
@@ -10,6 +9,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 
+import { ChevronDown, ChevronRight, ChevronUp, type LucideIcon } from '@/components/icons';
 import { useColors } from '@/theme/useColors';
 import { maxContentWidth, radius, space, themedStyles } from '@/theme/styles';
 

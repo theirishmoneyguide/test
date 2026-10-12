@@ -1,6 +1,6 @@
-import { CircleAlert, CircleCheck, Info, TriangleAlert, type LucideIcon } from 'lucide-react-native';
 import { Text, View } from 'react-native';
 
+import { CircleAlert, CircleCheck, Info, TriangleAlert, type LucideIcon } from '@/components/icons';
 import { useColors } from '@/theme/useColors';
 import { space, themedStyles } from '@/theme/styles';
 

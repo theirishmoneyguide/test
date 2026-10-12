@@ -1,8 +1,8 @@
 import { Stack, useRouter } from 'expo-router';
-import { ClipboardPaste, FileText, Share2 } from 'lucide-react-native';
 import { useState } from 'react';
 import { Platform, Pressable, Share, Text, TextInput, View } from 'react-native';
 
+import { ClipboardPaste, FileText, Share2 } from '@/components/icons';
 import { Button, Card, Note, ScreenScroll } from '@/components/ui';
 import { usePlannerData, usePlannerStore } from '@/store/plannerStore';
 import { createBackup, parseBackup } from '@/store/sanitize';

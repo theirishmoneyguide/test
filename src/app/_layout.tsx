@@ -9,11 +9,11 @@ import {
 } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { ArrowLeft } from 'lucide-react-native';
 import { useEffect } from 'react';
 import { Platform, Pressable } from 'react-native';
 
 import { DialogHost } from '@/components/DialogHost';
+import { ArrowLeft } from '@/components/icons';
 import { KeyboardDoneBar } from '@/components/inputs';
 import { usePlannerHydrated, usePlannerStore } from '@/store/plannerStore';
 import { useColors, useIsDark } from '@/theme/useColors';

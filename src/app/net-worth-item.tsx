@@ -1,7 +1,7 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { Trash2 } from 'lucide-react-native';
 import { Pressable, Text, TextInput, View } from 'react-native';
 
+import { Trash2 } from '@/components/icons';
 import { AmountField } from '@/components/inputs';
 import { Button, Card, Note, Row, ScreenScroll } from '@/components/ui';
 import { MONTHS, MONTHS_LONG, NET_WORTH_SECTIONS, type NetWorthSectionId } from '@/engine';

@@ -1,6 +1,6 @@
-import { Plus } from 'lucide-react-native';
 import { Pressable, Text } from 'react-native';
 
+import { Plus } from '@/components/icons';
 import { useColors } from '@/theme/useColors';
 import { space, themedStyles } from '@/theme/styles';
 

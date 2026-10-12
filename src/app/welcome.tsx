@@ -1,8 +1,8 @@
 import { useRouter } from 'expo-router';
-import { CalendarDays, LayoutDashboard, Sparkles, TrendingUp, Wallet, type LucideIcon } from 'lucide-react-native';
 import { ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { CalendarDays, LayoutDashboard, Sparkles, TrendingUp, Wallet, type LucideIcon } from '@/components/icons';
 import { Button, Disclaimer } from '@/components/ui';
 import { usePlannerStore } from '@/store/plannerStore';
 import { useColors } from '@/theme/useColors';

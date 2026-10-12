@@ -1,8 +1,8 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { Trash2 } from 'lucide-react-native';
 import { useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 
+import { Trash2 } from '@/components/icons';
 import { AmountField } from '@/components/inputs';
 import { Button, Card, Note, Row, ScreenScroll } from '@/components/ui';
 import { BUDGET_GROUPS, MONTHS, MONTHS_LONG, everyMonth, sum, type GroupId } from '@/engine';

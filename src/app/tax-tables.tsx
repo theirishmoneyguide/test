@@ -1,6 +1,6 @@
-import { RotateCcw } from 'lucide-react-native';
 import { Text, View } from 'react-native';
 
+import { RotateCcw } from '@/components/icons';
 import { AmountField, InputRow } from '@/components/inputs';
 import { Button, Card, Disclaimer, Note, ScreenScroll, SubHeading } from '@/components/ui';
 import {

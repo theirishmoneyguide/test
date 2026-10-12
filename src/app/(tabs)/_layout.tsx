@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router/js-tabs';
-import { CalendarDays, LayoutDashboard, Menu, TrendingUp, Wallet } from 'lucide-react-native';
 
+import { CalendarDays, LayoutDashboard, Menu, TrendingUp, Wallet } from '@/components/icons';
 import { usePlannerData } from '@/store/plannerStore';
 import { useColors } from '@/theme/useColors';
 
