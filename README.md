@@ -27,7 +27,16 @@ Android and iOS.
 Figures are saved on the device only. **More → Back up & restore** shares a backup through the
 phone's share sheet and restores it by pasting it back in.
 
-## Run it on your phone (no build needed)
+## Try it on an Android phone (no computer needed)
+
+1. On GitHub, open **Actions → Android test APK**. Use the latest successful run, or press
+   **Run workflow** to build the current code (about 12 minutes).
+2. Download **budget-planner-android-apk** from the run's *Artifacts* section and unzip it.
+3. Open `app-release.apk` on the phone and allow installing from that source when asked.
+
+This test APK is signed with a development key: it's for trying the app, not for Google Play.
+
+## Run it on your phone with Expo Go (iPhone or Android)
 
 1. Install Node.js 20 or newer.
 2. Install the **Expo Go** app on your phone (App Store or Google Play).
