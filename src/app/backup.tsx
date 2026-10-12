@@ -1,7 +1,7 @@
 import { Stack, useRouter } from 'expo-router';
-import { ClipboardPaste, Share2 } from 'lucide-react-native';
+import { ClipboardPaste, FileText, Share2 } from 'lucide-react-native';
 import { useState } from 'react';
-import { Pressable, Share, Text, TextInput } from 'react-native';
+import { Platform, Pressable, Share, Text, TextInput, View } from 'react-native';
 
 import { Button, Card, Note, ScreenScroll } from '@/components/ui';
 import { usePlannerData, usePlannerStore } from '@/store/plannerStore';
@@ -36,12 +36,16 @@ export default function BackupScreen() {
   const replaceData = usePlannerStore((s) => s.replaceData);
   const [pasted, setPasted] = useState('');
   const [error, setError] = useState<string | null>(null);
+  // Browsers often can't share; show the backup as text to copy instead.
+  const [showText, setShowText] = useState(false);
+  const backup = createBackup(data);
 
   const share = async () => {
     try {
-      await Share.share({ title: 'Budget planner backup', message: createBackup(data) });
+      await Share.share({ title: 'Budget planner backup', message: backup });
     } catch {
-      showMessage('Could not share', 'Your device would not open the share sheet.');
+      if (Platform.OS === 'web') setShowText(true);
+      else showMessage('Could not share', 'Your device would not open the share sheet.');
     }
   };
 
@@ -79,6 +83,32 @@ export default function BackupScreen() {
           can restore it on a new phone.
         </Note>
         <Button title="Share a backup" icon={Share2} onPress={share} />
+        {Platform.OS === 'web' && !showText ? (
+          <>
+            <View style={{ height: space.sm }} />
+            <Button
+              title="Show the backup as text"
+              icon={FileText}
+              variant="secondary"
+              onPress={() => setShowText(true)}
+            />
+          </>
+        ) : null}
+        {showText ? (
+          <>
+            <Note style={{ marginTop: space.md, marginBottom: space.sm }}>
+              Select all of this text and copy it somewhere safe.
+            </Note>
+            <TextInput
+              style={styles.box}
+              multiline
+              editable={false}
+              selectTextOnFocus
+              value={backup}
+              accessibilityLabel="Backup text"
+            />
+          </>
+        ) : null}
       </Card>
 
       <Card title="Restore">

@@ -1,10 +1,10 @@
 import { Alert, Platform } from 'react-native';
 
+import { requestDialog } from '@/components/DialogHost';
+
 /** Ask before doing something that can't be undone. Resolves to true if confirmed. */
 export function confirmAction(title: string, message: string, confirmLabel: string): Promise<boolean> {
-  if (Platform.OS === 'web') {
-    return Promise.resolve(globalThis.confirm?.(`${title}\n\n${message}`) ?? false);
-  }
+  if (Platform.OS === 'web') return requestDialog({ title, message, confirmLabel });
   return new Promise((resolve) => {
     Alert.alert(title, message, [
       { text: 'Cancel', style: 'cancel', onPress: () => resolve(false) },
@@ -15,7 +15,7 @@ export function confirmAction(title: string, message: string, confirmLabel: stri
 
 export function showMessage(title: string, message: string): void {
   if (Platform.OS === 'web') {
-    globalThis.alert?.(`${title}\n\n${message}`);
+    void requestDialog({ title, message });
     return;
   }
   Alert.alert(title, message);

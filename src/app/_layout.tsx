@@ -1,13 +1,46 @@
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider, type Theme } from 'expo-router';
+import {
+  DarkTheme,
+  DefaultTheme,
+  Stack,
+  ThemeProvider,
+  router,
+  type NativeStackHeaderBackProps,
+  type Theme,
+} from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
+import { ArrowLeft } from 'lucide-react-native';
 import { useEffect } from 'react';
+import { Platform, Pressable } from 'react-native';
 
+import { DialogHost } from '@/components/DialogHost';
 import { KeyboardDoneBar } from '@/components/inputs';
 import { usePlannerHydrated, usePlannerStore } from '@/store/plannerStore';
 import { useColors, useIsDark } from '@/theme/useColors';
 
 SplashScreen.preventAutoHideAsync();
+
+/**
+ * On the web the stack's back arrow is an image loaded from an absolute path,
+ * which goes missing when the app is served from a sub-path. Draw it instead.
+ */
+const webBackButton =
+  Platform.OS === 'web'
+    ? {
+        headerLeft: ({ canGoBack, tintColor }: NativeStackHeaderBackProps) =>
+          canGoBack ? (
+            <Pressable
+              onPress={() => router.back()}
+              accessibilityRole="button"
+              accessibilityLabel="Back"
+              hitSlop={10}
+              style={{ paddingHorizontal: 12 }}
+            >
+              <ArrowLeft color={typeof tintColor === 'string' ? tintColor : '#FFFFFF'} size={22} />
+            </Pressable>
+          ) : null,
+      }
+    : {};
 
 export default function RootLayout() {
   const hydrated = usePlannerHydrated();
@@ -45,6 +78,7 @@ export default function RootLayout() {
           headerTitleStyle: { fontWeight: '700' },
           headerBackButtonDisplayMode: 'minimal',
           contentStyle: { backgroundColor: colors.background },
+          ...webBackButton,
         }}
       >
         <Stack.Protected guard={onboarded}>
@@ -62,6 +96,7 @@ export default function RootLayout() {
         <Stack.Screen name="+not-found" options={{ headerShown: false }} />
       </Stack>
       <KeyboardDoneBar />
+      <DialogHost />
     </ThemeProvider>
   );
 }
